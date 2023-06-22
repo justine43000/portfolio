@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact
+{% endblock %}
+
+{% block body %}
+	<!-- contact-->
+	<h2 class="text-center text-3xl font-bold mt-12">Contact</h2>
+	{% if app.flashes['success'] is defined %}
+		{% for message in app.flashes['success'] %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+	<div class="m-10 mx-auto" id="contact">
+		<div class='flex justify-center'>
+			{{form_start(form)}}
+			{{form_widget(form)}}
+			{{form_end(form)}}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% use 'tailwind_2_layout.html.twig' %}
+
+{%- block form_row -%}
+    {%- set row_class = row_class|default('block w-96 bg-pink-100 p-2 shadow-lg') -%}
+    {{- parent() -}}
+{%- endblock form_row -%}
+
+
+{%- block form_errors -%}
+    {%- set error_item_class = error_item_class|default('my error item classes') -%}
+    {{- parent() -}}
+{%- endblock form_errors -%}
+
+{%- block form_label -%}
+    {%- set label_class = label_class|default('peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"') -%}
+    {{- parent() -}}
+{%- endblock -%}
+
+{%- block widget_attributes -%}
+    {%- set widget_class = widget_class|default('mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50') -%}
+    {{- parent() -}}
+{%- endblock -%}
+
+{%- block checkbox_widget -%}
+    {%- set widget_class = widget_class|default('mr-2 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50') -%}
+    {{- parent() -}}
+{%- endblock -%}
+
+{%- block checkbox_label -%}
+    {%- set label_class = label_class|default('block text-gray-800') -%}
+    {{- block('form_label') -}}
+{%- endblock -%}
+
+{%- block submit_button -%}
+    <button type="{{ type|default('submit') }}" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded">
+        {{ label|default('Submit') }}
+    </button>
+{%- endblock submit_button -%}

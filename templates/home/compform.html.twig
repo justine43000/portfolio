@@ -1,0 +1,42 @@
+<!-- compétences et formations -->
+<div class="flex flex-col items-center md:flex md:justify-around">
+	<div class="m-3 md:w-1/2">
+		<h2 class="text-center text-3xl font-bold mb-12">Expériences<h2>
+				<ol class="border-l-2 border-pink-500 dark:border-pink-500">
+					<li>
+						{% for experience in experiences %}
+							<div class="flex-start flex items-center">
+								<div class="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-pink-500 dark:bg-pink-500"></div>
+								<h4 class="-mt-2 text-xl font-semibold">{{experience.nomEntreprise}}</h4>
+							</div>
+							<div class="ml-6 mb-6 pb-6">
+								<a href="#!" class="text-sm text-pink transition duration-150 ease-in-out hover:text-pink-600 focus:text-pink-600 active:text-pink-700 dark:text-pink-400 dark:hover:text-pink-500 dark:focus:text-pink-500 dark:active:text-pink-600">{{experience.dateDebut|date("d/m/Y")}}  {{experience.dateFin|date("d/m/Y")}}</a>
+								<p class="mt-2 mb-4 text-neutral-500">
+									{{experience.description}}
+								</p>
+
+							</div>
+						{% endfor %}
+					</li>
+				</ol>
+			</div>
+			<div class="m-3 md:w-1/2">
+				<h2 class="text-center text-3xl font-bold mb-12">Formations<h2>
+						<ol class="border-l-2 border-pink-500 dark:border-pink-500">
+							<li>
+								{% for formation in formations %}
+									<div class="flex-start flex items-center">
+										<div class="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-pink-500 dark:bg-pink-500"></div>
+										<h4 class="-mt-2 text-xl font-semibold">{{formation.nom}}</h4>
+									</div>
+									<div class="ml-6 mb-6 pb-6">
+										<a href="#!" class="text-sm text-pink transition duration-150 ease-in-out hover:text-pink-600 focus:text-pink-600 active:text-pink-700 dark:text-pink-400 dark:hover:text-pink-500 dark:focus:text-pink-500 dark:active:text-pink-600">{{formation.date}}</a>
+										<p class="mt-2 mb-4 text-neutral-500">
+											{{formation.description}}
+										</p>
+									</div>
+								{% endfor %}
+							</li>
+						</ol>
+					</div>
+				</div>

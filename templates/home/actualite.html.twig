@@ -1,0 +1,33 @@
+<!-- actualité-->
+
+<!-- Container for demo purpose -->
+	<div
+	class="container my-24 px-6 mx-auto"> <!-- Section: Design Block -->
+	<section class="mb-32 text-gray-800 text-center lg:text-left">
+
+		<h2 class="text-3xl font-bold mb-12 text-center">Actualités</h2>
+
+		<div class="grid lg:grid-cols-3 gap-x-6 ">
+			{% for actualite in actualites %}
+				<div class="bg-white block rounded-lg shadow-lg shadow-pink-200 mb-6 lg:mb-0" data-mdb-ripple="true" data-mdb-ripple-color="light">
+					<div class="relative overflow-hidden bg-no-repeat bg-cover">
+						{% if actualite.image %}
+							<img src="{{ asset('uploads/actualites/' ~ actualite.image) }}" class="w-full"/>
+						{% endif %}
+						<svg class="absolute" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1440 320" style="left: 0; bottom: 0">
+							<path fill="#fff" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+						</svg>
+					</div>
+					<div class="p-6">
+						<h5 class="font-bold text-lg mb-3">{{actualite.nom}}</h5>
+						<h6>{{actualite.lieu}}</h6>
+						<p class="mb-4 pb-2">{{actualite.description}}</p>
+						<p class="text-right text-pink-600">{{ actualite.date|date("d/m/Y") }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+	<!-- Section: Design Block -->
+</div>
+<!-- Container for demo purpose -->

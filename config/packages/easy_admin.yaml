@@ -1,0 +1,41 @@
+easy_admin:
+  entities:
+    Projet:
+      class: App\Entity\Projet
+      form:
+        fields:
+          - "nom"
+          - "lien"
+          - "difficultes"
+          - "categorie"
+          - "imageFile"
+          - "image_name"
+      edit:
+        fields:
+          - "nom"
+          - "lien"
+          - "difficultes"
+          - "categorie"
+          - "imageFile"
+          - "image_name"
+      new:
+        fields:
+          - "nom"
+          - "lien"
+          - "difficultes"
+          - {
+              property: "categorie",
+              type: "entity",
+              multiple: true,
+              class: 'App\Entity\Categorie',
+            }
+          - "imageFile"
+          - "image_name"
+      list:
+        fields:
+          - "nom"
+          - "lien"
+          - "difficultes"
+          - "categorie"
+          - "imageFile"
+          - "image_name"

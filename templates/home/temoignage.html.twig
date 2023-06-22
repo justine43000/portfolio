@@ -1,0 +1,41 @@
+{% if temoignages is defined and temoignages|length > 0 %}
+	<div id="carouselExampleCaptions" class="bg-pink-200 rounded-md m-5" data-te-carousel-init data-te-carousel-slide>
+
+		<h2 class="text-3xl font-bold mb-12 text-center">Témoignage</h2>
+		<div class=" w-full overflow-hidden after:clear-both after:block after:content-['']">
+
+			{% for temoignage in temoignages %}
+				<div class=" float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-active data-te-carousel-item style="backface-visibility: hidden">
+					<div class="flex flex-col items-center justify-center h-full">
+						{% if temoignage.image %}
+							<img src="{{ asset('uploads/temoignages/' ~ temoignage.image) }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30 mb-6 p-5" alt="sample image"/>
+						{% endif %}
+						<p class="mt-4 text-neutral-700 dark:text-neutral-200">{{ temoignage.nom }}{{ temoignage.prenom }}</p>
+						<p class="text-xl italic text-neutral-800 dark:text-neutral-100">{{ temoignage.temoignage }}</p>
+					</div>
+				</div>
+			{% endfor %}
+			{% else %}
+
+		{% endif %}
+	</div>
+
+	<!--Carousel Controls - prev item-->
+	<button class="bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
+		<span class="inline-block h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+			</svg>
+		</span>
+		<span class=" !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+	</button>
+	<!--Carousel Controls - next item-->
+	<button class="bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
+		<span class="inline-block h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+			</svg>
+		</span>
+		<span class="!-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+	</button>
+</div>

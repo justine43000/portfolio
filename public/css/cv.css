@@ -1,0 +1,57 @@
+.progressbar {
+    height: 20px;
+    background-color: #f3e6f9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progressbar:before {
+    content: attr(title);
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding: 0 4px;
+    color: white;
+    font-size: 0.75rem;
+  }
+  
+  .progressbar.html:before {
+    width: 90%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  
+  .progressbar.js:before {
+    width: 50%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  
+  .progressbar.php:before {
+    width: 65%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  
+  .progressbar.wordpress:before {
+    width: 50%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  
+  .progressbar.symfony:before {
+    width: 70%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  
+  .progressbar.react:before {
+    width: 50%;
+    background-color: #f48fb1;
+    text-align: right;
+  }
+  

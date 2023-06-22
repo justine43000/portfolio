@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-3xl font-bold m-12 pb-4 text-center">Mes Projets</h1>
+	<!-- ligne1-->
+	<!-- Container for demo purpose -->
+	<div
+		class="grid col-3">
+
+		<!-- Section: Design Block -->
+		<section class="mb-32 text-gray-800 text-center">
+
+			<div class="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
+				{% for projet in projets %}
+					<div class="mb-6 lg:mb-0">
+
+						<div class="relative block bg-white rounded-lg shadow-lg">
+							<div class="flex">
+								<div class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4" data-mdb-ripple="true" data-mdb-ripple-color="light">
+									{% if projet.imageName %}
+										<img src="{{ asset('uploads/projets/' ~ projet.imageName) }}" class="w-full"/>
+									{% endif %}
+									<a href="{{ projet.lien }}" target="_blank">
+										<div class="mask absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+									</a>
+								</div>
+							</div>
+							<div class="p-6">
+								<h5 class="font-bold text-lg mb-3">{{projet.nom}}</h5>
+								{% for categorie in projet.categorie %}
+									<span>{{ categorie.label }}</span>
+								{% endfor %}
+								<p class="text-gray-500">
+									{{projet.difficultes}}
+								</p>
+
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="flex justify-center">
+				{% do projets.setPageRange(2) %}
+				{{ knp_pagination_render(projets, 'pagination.html.twig')}}
+			</div>
+		</section>
+		<!-- Section: Design Block -->
+	</div>
+	<!-- Container for demo purpose -->
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-3xl font-bold m-12 pb-4 text-center">Mes Actualités</h1>
+	<!-- ligne1-->
+	<!-- Container for demo purpose -->
+	<div
+		class="grid col-3">
+
+		<!-- Section: Design Block -->
+		<section class="mb-32 text-gray-800 text-center">
+
+			<div class="grid lg:grid-cols-3 gap-6 xl:gap-x-12">
+				{% for actualite in actualites %}
+					<div class="mb-6 lg:mb-0">
+						<div class="relative block bg-white rounded-lg shadow-lg">
+							<div class="flex">
+								<div class="relative overflow-hidden bg-no-repeat bg-cover bg-no-repeat bg-cover shadow-lg rounded-lg mx-4 -mt-4" data-mdb-ripple="true" data-mdb-ripple-color="light">
+									{% if actualite.image %}
+										<img src="{{ asset('uploads/actualites/' ~ actualite.image) }}" class="w-full"/>
+									{% endif %}
+								</div>
+							</div>
+							<div class="p-6">
+								<h5 class="font-bold text-lg mb-3">{{actualite.nom}}</h5>
+								<h6>{{actualite.lieu}}</h6>
+								<p class="mb-4 pb-2">{{actualite.description}}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="flex justify-center">
+				{% do actualites.setPageRange(2) %}
+				{{ knp_pagination_render(actualites, 'pagination.html.twig')}}
+			</div>
+		</section>
+		<!-- Section: Design Block -->
+	</div>
+	<!-- Container for demo purpose -->
+{% endblock %}

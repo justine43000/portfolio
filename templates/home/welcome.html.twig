@@ -1,0 +1,28 @@
+<!-- Accueil-->
+<div class="container-fluid bg-pink-100 h-screen flex items-center mb-5 py-5" id="home">
+	<div class="container mx-auto">
+		<div class="flex flex-col ms:flex-row items-center md:items-start mx-auto">
+			<div class="w-5/12 px-5 pl-md-0 pb-5 pb-md-0 mx-auto text-center">
+				<img class="w-full rounded-full shadow-sm" src="./photos/toonmecom_b8aac8-removebg-preview.png" alt="">
+			</div>
+			<div class=" mx-auto text-center md:text-left">
+				<span class=" font-medium mb-3 text-gray-900">Je suis</span>
+				<h1 class="mb-2 text-5xl tracking-wide leading-tight font-f-title font-extrabold">Justine PREVOT</h1>
+				<div class="flex justify-center ">
+					<h2 class="space-x-1 text-3xl font-bold">Développeuse
+						<span class="typed-text-output inline text-3xl font-bold mb-12 space-x-1 "></span>
+					</h2>
+					<span class="typed-text hidden text-3xl font-bold mb-12">Web, Front-End, Back-End, d'Apps</span>
+				</div>
+
+				<div class="flex justify-center m-4 space-x-2" id=" btn">
+					<form action="{{ path('cv_generate_pdf') }}" method="post">
+						<button type="submit" class="inline-block rounded-full bg-pink-300 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-pink-500 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-pink-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-pink-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]">
+							Télécharger mon CV
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
